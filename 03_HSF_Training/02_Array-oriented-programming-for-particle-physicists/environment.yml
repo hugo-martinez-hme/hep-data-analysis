@@ -1,0 +1,47 @@
+name: array-oriented-programming
+
+channels:
+  - conda-forge
+
+dependencies:
+  # Python itself
+  - python=3.11
+
+  # for building and testing the JupyterBook
+  - jupyter-book
+  - ghp-import
+  - nbconvert
+
+  # JupyterLab interface
+  - jupyterlab
+
+  # core scientific Python libraries
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - h5py
+  - pyarrow
+  - pympler
+
+  # libraries for particle physics
+  - uproot
+  - awkward
+  - vector
+  - hist
+  - hepunits
+  - particle
+
+  # compilers
+  - clang-tools
+  - cxx-compiler
+  - pybind11
+  - numba
+  - jax
+
+  # distributed computing
+  - dask
+  - distributed
+  - dask-awkward
+  - graphviz
+  - python-graphviz

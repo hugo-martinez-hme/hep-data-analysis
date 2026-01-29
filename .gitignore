@@ -2,3 +2,4 @@
 *.root
 __pycache__/
 .ipynb_checkpoints/
+03_HSF_Training/02_Array-oriented-programming-for-particle-physicists/data/
