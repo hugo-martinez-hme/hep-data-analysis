@@ -1,0 +1,13 @@
+# <tipo>(<alcance>): <descripción corta en minúsculas>
+# --------------------------------------------------
+# feat:     Nueva funcionalidad
+# fix:      Arreglo de un error
+# docs:     Cambios en documentación
+# refactor: Código que no añade función ni arregla bug
+# test:     Añadir o mejorar tests
+# chore:    Mantenimiento
+# --------------------------------------------------
+# Reglas:
+# 1. Usa el imperativo
+# 2. Máximo 50 caracteres en la primera línea
+# 3. No termines con punto
