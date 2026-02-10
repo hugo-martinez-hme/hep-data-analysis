@@ -1,17 +1,24 @@
-# High Energy Physics and AI Engineering Research
+# High Energy Physics & AI Engineering Research
 
-I am a third-year Artificial Intelligence student at the Universidade de Vigo (UVigo). This repository is a dedicated research space for exploring the intersection of High-Performance Computing (HPC), Machine Learning, and High Energy Physics (HEP).
+I am an Artificial Intelligence student at the Universidade de Vigo (UVigo). This repository serves as a personal laboratory for exploring the intersection of High-Performance Computing (HPC), Machine Learning, and particle physics.
 
-The primary objective of these laboratories is to implement and evaluate efficient large-scale data processing workflows using the Scikit-HEP ecosystem. My research focuses on analyzing datasets from the Large Hadron Collider (LHC) at CERN, with a specific emphasis on algorithmic optimization and computational performance.
+My research focuses on the computational challenges of the Large Hadron Collider (LHC) at CERN, specifically regarding algorithmic optimization and deterministic AI.
 
 ## Technical Focus
 
-* **Data Processing:** Implementation of columnar analysis via UpROOT and Awkward Array to optimize memory access patterns and execution speed.
-* **Computational Efficiency:** Development of low-latency event processing logic and optimization of data structures for scientific computing environments.
-* **Physical Modeling:** Application of relativistic kinematics for particle decay identification and invariant mass reconstruction.
+* **Data Systems:** Implementing columnar analysis using the Scikit-HEP ecosystem (UpROOT, Awkward Array) to optimize I/O and memory efficiency.
+* **Physics-Informed ML:** Moving beyond "black-box" models by integrating physical constraints (relativistic kinematics and energy conservation) into neural architectures.
+* **Systems Engineering:** Developing on Arch Linux while ensuring reproducibility through AlmaLinux 9 containers, following CERN production standards.
 
-## Repository Structure
+## Project Structure
 
-* **01_Physics_Study:** Implementation and mathematical modeling of core concepts derived from specialized physics literature, with a primary focus on Special Relativity and Electromagnetism.
-* **02_Algorithms:** Analysis and implementation of algorithmic designs based on foundational literature, focusing on time complexity, memory management, and hardware-level optimization for scientific computing.
-* **03_HSF_Training:** Technical implementations and analysis scripts following the standards of the HEP Software Foundation (HSF).
+* **`01_Foundations/`**: Mathematical modeling and core physics concepts (Special Relativity, Electromagnetism) alongside HSF software standards.
+* **`02_ATLAS_TileCal/`**: Energy reconstruction research. Development of CNNs for signal processing and amplitude recovery in high-noise calorimeter environments.
+* **`03_CMS_Archi/`**: Engineering "Agentic" workflows. Implementation of the Model Context Protocol (MCP) for reliable AI assistants in computing operations.
+* **`04_Data_Sandbox/`**: Local environment for raw dataset processing (ignored by version control).
+
+## Infrastructure & Standards
+
+* **OS:** Arch Linux (Development) / AlmaLinux 9 (Target/Docker).
+* **CI/CD:** Automated testing via GitHub Actions.
+* **Version Control:** Strictly following the Conventional Commits specification.
