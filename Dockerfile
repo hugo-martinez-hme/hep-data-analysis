@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pydantic \
     pytest \
     mcp \
+    chromadb \
+    sentence-transformers \
+    mplhep \
     torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 
 FROM quay.io/almalinux/almalinux:9-minimal
