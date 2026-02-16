@@ -4,3 +4,5 @@ __pycache__/
 .ipynb_checkpoints/
 03_HSF_Training/02_Array-oriented-programming-for-particle-physicists/data/
 .env
+02_ATLAS_TileCal/data/
+*.csv
