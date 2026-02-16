@@ -4,3 +4,7 @@ scikit-learn
 matplotlib
 joblib
 torch
+pytest
+uproot
+awkward
+vector
