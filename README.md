@@ -1,4 +1,4 @@
-# High Energy Physics & AI Engineering Research 🚀
+# High Energy Physics & AI Engineering Research
 [![HSF Training](https://img.shields.io/badge/HSF-Software_Training-blue?logo=github)](https://hsf-training.org/)
 [![OS: Arch Linux](https://img.shields.io/badge/OS-Arch_Linux-1793D1?logo=arch-linux&logoColor=white)](https://archlinux.org/)
 [![Env: AlmaLinux 9](https://img.shields.io/badge/Container-AlmaLinux_9-FF8A00?logo=almalinux&logoColor=white)](https://almalinux.org/)
