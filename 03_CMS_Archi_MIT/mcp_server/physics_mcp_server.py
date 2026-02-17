@@ -55,5 +55,23 @@ def physics_calculator(pulse_data: str) -> str:
         return f"Error de formato o cálculo: {str(e)}"
 
 
+# Validate tool
+
+
+@mcp.tool()
+def validate_physics_request(pt_threshold: float, etas: list[float]) -> str:
+    """
+    Valida si una petición de análisis tiene sentido físico antes de procesarla.
+    """
+
+    if pt_threshold < 0:
+        return "ERROR: El pT (momento transversal) no puede ser negativo. Revisa la petición."
+
+    if any(abs(eta) > 2.5 for eta in etas):
+        return "ADVERTENCIA: Algunos muones están fuera de la aceptación del detector CMS (|eta| > 2.5)."
+
+    return "VALID: Parámetros físicos dentro de los límites operacionales del CMS."
+
+
 if __name__ == "__main__":
     mcp.run()
