@@ -4,17 +4,17 @@
 [![Env: AlmaLinux 9](https://img.shields.io/badge/Container-AlmaLinux_9-FF8A00?logo=almalinux&logoColor=white)](https://almalinux.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-I am an Artificial Intelligence student at the **Universidade de Vigo (UVigo)**. This repository serves as a specialized research laboratory focusing on the intersection of **High-Performance Computing (HPC)**, **Deterministic AI**, and **Particle Physics**. This work is pecifically designed as a technical portfolio for **GSoC 2026**
+I am an Artificial Intelligence student at the **Universidade de Vigo (UVigo)**. This repository serves as a specialized research laboratory focusing on the intersection of **High-Performance Computing (HPC)**, **Deterministic AI**, and **Particle Physics**. This work is specifically designed as a technical portfolio for **GSoC 2026**.
 
 ---
 
 ## 📚 Project Structure
 
-### [01] Foundations: HSF Training & Mathematical Physics
-Following the **HEP Software Foundation (HSF)** standards, this module establishes the groundwork for professional-grade scientific software development.
-* **Software Sustainability:** Implementation of clean code principles, version control (Conventional Commits), and modular Python development.
-* **HSF Curriculum:** Transitioning through the HSF training modules including ML for HEP, Python analysis (Scikit-HEP), and Unix shell optimization.
-* **Physics Modeling:** Theoretical study of the Standard Model (SM), focusing on particle-matter interaction and signal induction in calorimeters.
+### [01] Foundations: Scikit-HEP & High-Performance Analysis
+Following the **HEP Software Foundation (HSF)** standards, this module establishes the groundwork for professional-grade scientific software development and data processing.
+* **Vectorized Data Analysis:** Transitioning from imperative loops to high-performance **Array-Oriented Programming**. Focused on Higgs boson reconstruction using NumPy, `vector` library, and handling **Jagged Arrays** via Awkward Arrays.
+* **Machine Learning Suite:** Implementation of supervised learning workflows for signal/background separation. Comparing **Scikit-learn (Random Forests)** and **PyTorch (Neural Networks)** using both ATLAS simulated and experimental data.
+* **Software Sustainability:** Application of clean code principles, containerization (Docker/AlmaLinux 9), and specialized tools like `uproot` for **ROOT** file diagnostics and structural inspection.
 
 ### [02] ATLAS TileCal: Signal Reconstruction & Pulse Analysis
 The **Tile Calorimeter (TileCal)** is crucial for measuring hadron energy at ATLAS. This module explores Deep Learning as an alternative to traditional **Optimal Filtering (OF)**.
@@ -24,15 +24,11 @@ The **Tile Calorimeter (TileCal)** is crucial for measuring hadron energy at ATL
     2. **Benchmark:** Proving the failure of standard MLP architectures under high-noise conditions.
     3. **Innovation:** Implementation of a **Temporal Recurrent Network (LSTM)** in PyTorch that treats the 7 ADC samples as a sequence, significantly improving energy resolution.
 
-
-
 ### [03] CMS Archi: Decoupled Agentic Workflows with MCP
 Applying modern systems engineering to physics operations by implementing the **Model Context Protocol (MCP)**.
 * **Objective:** Building a reliable AI "Research Assistant" for the CMS experiment.
 * **Architecture:** Using a decoupled approach where the LLM (Reasoning) is separated from the Physics Tools (Execution).
 * **Deterministic Tools:** Custom MCP servers providing real-time data access, invariant mass calculations, and system monitoring within an AlmaLinux 9 environment.
-
-
 
 ---
 
@@ -40,7 +36,7 @@ Applying modern systems engineering to physics operations by implementing the **
 
 | Component | Technology |
 | :--- | :--- |
-| **Scientific Stack** | Scikit-HEP, PyTorch, Scikit-Learn |
+| **Scientific Stack** | Scikit-HEP (Uproot, Awkward, Hist, Vector), PyTorch, Scikit-Learn |
 | **Training Standards** | HSF (HEP Software Foundation) |
 | **Runtime Environment** | AlmaLinux 9 (CERN Standard) |
 | **Development** | Arch Linux / Podman Containers |
