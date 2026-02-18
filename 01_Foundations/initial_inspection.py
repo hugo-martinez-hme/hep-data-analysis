@@ -1,18 +1,31 @@
 import uproot
+import awkward as ak
+import numpy as np
 
-# Abrimos el archivo
-file = uproot.open("04_Data_Sandbox/HZZ.root")
 
-# 1. Listar lo que hay dentro del archivo
-print("Objetos en el archivo:", file.keys())
+def get_tree_metadata(file_path, tree_name="events"):
+    """
+    Extrae metadatos detallados de un archivo ROOT para diagnóstico.
+    """
+    with uproot.open(file_path) as file:
+        tree = file[tree_name]
 
-# 2. Acceder al árbol de eventos (suele llamarse 'events' o 'events;1')
-# Nota: uproot añade ';1' para indicar la versión del objeto
-tree = file["events"] 
+        print(f"Reporte de Inspección: {file_path} ---")
+        print(f"Eventos totales: {tree.num_entries}")
+        print(f"Tamaño en disco: {file.file.source.num_bytes / 1e6:.2f} MB")
 
-# 3. Ver las "Ramas" (Branches), que son las columnas de datos
-print("\nPrimeras 10 columnas (Branches):")
-print(tree.keys()[:10])
+        # Analiza las primeras 10 ramas
+        print("\nDetalle de Ramas (Top 10):")
+        print(f"{'Branch Name':<25} | {'Dtype':<15} | {'Avg Size/Evt'}")
+        print("-" * 60)
 
-# 4. Ver cuántas colisiones (entradas) hay
-print(f"\nNúmero total de eventos: {tree.num_entries}")
+        for name in tree.keys()[:10]:
+            interpretation = tree[name].interpretation
+            # Calcula el tamaño promedio
+            size = tree[name].compressed_bytes / tree.num_entries
+            print(f"{name:<25} | {str(interpretation):<15} | {size:.2f} bytes")
+
+
+if __name__ == "__main__":
+    path = "../04_Data_Sandbox/HZZ.root"
+    get_tree_metadata(path)
