@@ -77,11 +77,9 @@ async def run_cms_analysis():
     config_access.get_static_config = lambda: mock_static
     config_access.get_full_config = lambda **kwargs: config
 
-    # 1. OBTENER DATOS REALES PRIMERO
     print("🧪 [DATA] Extrayendo datos del CSV...")
     tabla_real = cms_data_analyzer.invoke({"min_pt": 45.0})
 
-    # 2. INYECTAR DATOS EN EL PROMPT DEL AGENTE
     agent = CMSPhysicsAgent(config=config)
 
     system_context = (
@@ -94,7 +92,6 @@ async def run_cms_analysis():
     query = "Analiza los datos proporcionados, muestra la tabla y dime si son candidatos a Bosón Z."
     print(f"\n🧠 [AGENT] Analizando con Llama-3.3...")
 
-    # Pasamos el contexto de sistema forzado
     response = agent.invoke(history=[("system", system_context), ("human", query)])
 
     print("\n--- 🏁 RESPUESTA FINAL ---")
