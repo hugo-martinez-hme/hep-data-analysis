@@ -13,10 +13,9 @@ class TileCalRNN(nn.Module):
         self.lstm = nn.LSTM(
             input_size=1, hidden_size=32, num_layers=1, batch_first=True
         )
-        self.fc = nn.Linear(32, 1)  # Capa final para predecir la amplitud
+        self.fc = nn.Linear(32, 1)
 
     def forward(self, x):
-        # x shape: (batch, 7, 1)
         _, (hn, _) = self.lstm(x)
         out = self.fc(hn[-1])
         return out
@@ -27,12 +26,11 @@ def train_rnn():
     X = df[[f"s{i}" for i in range(7)]].values
     y = df["true_amplitude"].values
 
-    # Reshape para RNN: (muestras, pasos_de_tiempo, caracteristicas) -> (N, 7, 1)
     X = X.reshape(-1, 7, 1)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-    # Convertir a Tensores de PyTorch
+    # Tensores de PyTorch
     X_train = torch.FloatTensor(X_train)
     y_train = torch.FloatTensor(y_train).view(-1, 1)
 
@@ -55,7 +53,6 @@ def train_rnn():
         if epoch % 5 == 0:
             print(f"Epoch {epoch} | Loss: {loss.item():.4f}")
 
-    # Evaluación rápida
     model.eval()
     with torch.no_grad():
         X_test_t = torch.FloatTensor(X_test)

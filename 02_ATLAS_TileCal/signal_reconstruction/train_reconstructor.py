@@ -43,7 +43,7 @@ def train_atlas_model():
 
     os.makedirs("models", exist_ok=True)
     joblib.dump(model, "models/tilecal_mlp_model.pkl")
-    print("✅ Modelo guardado en: models/tilecal_mlp_model.pkl")
+    print("Modelo guardado en: models/tilecal_mlp_model.pkl")
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ def create_mixed_dataset():
     df_clean = pd.read_csv(clean_path)
     df_pileup = pd.read_csv(pileup_path)
 
-    # Mezclamos ambos para que la IA vea de todo
+    # Mezclamos ambos
     df_mixed = pd.concat([df_clean, df_pileup]).sample(frac=1).reset_index(drop=True)
 
     df_mixed.to_csv("../data/tilecal_hardened_data.csv", index=False)

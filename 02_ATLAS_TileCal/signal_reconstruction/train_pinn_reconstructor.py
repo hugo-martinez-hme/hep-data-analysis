@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 
-# --- 1. Definición de la Física del Detector ---
+# Definición de la Física del Detector
 def pulse_shape_physics(t, amplitude, tau=25.0):
     """
     Ecuación teórica del pulso de ATLAS TileCal.
@@ -19,7 +19,7 @@ def pulse_shape_physics(t, amplitude, tau=25.0):
     return amp_clipped * (t / tau) * torch.exp(1 - (t / tau))
 
 
-# --- 2. Función de Pérdida "Physics-Informed" (PINN) ---
+# Función de Pérdida
 class PhysicsInformedLoss(nn.Module):
     def __init__(self, lambd=0.05):
         super(PhysicsInformedLoss, self).__init__()
@@ -37,13 +37,12 @@ class PhysicsInformedLoss(nn.Module):
         t = self.t_values.to(pred_amplitude.device)
         physics_samples = pulse_shape_physics(t, pred_amplitude)
 
-        # Comparamos la forma del pulso teórico con el input original
         physics_loss = self.mse(physics_samples, input_samples)
 
         return data_loss + self.lambd * physics_loss
 
 
-# --- 3. Arquitectura del Modelo (LSTM) ---
+# Arquitectura del Modelo (LSTM)
 class TileCalPINN(nn.Module):
     def __init__(self):
         super(TileCalPINN, self).__init__()
@@ -58,7 +57,7 @@ class TileCalPINN(nn.Module):
         return out
 
 
-# --- 4. Pipeline de Entrenamiento ---
+# Pipeline de Entrenamiento
 def train_pinn():
     data_path = "../data/tilecal_hardened_data.csv"
     if not os.path.exists(data_path):
@@ -78,7 +77,7 @@ def train_pinn():
     X_train_scaled = (X_train - X_mean) / X_std
     X_test_scaled = (X_test - X_mean) / X_std
 
-    # Preparar Tensores
+    # Tensores
     X_train_t = torch.FloatTensor(X_train_scaled).unsqueeze(-1)
     y_train_t = torch.FloatTensor(y_train).view(-1, 1)
     X_test_t = torch.FloatTensor(X_test_scaled).unsqueeze(-1)
@@ -102,7 +101,6 @@ def train_pinn():
             optimizer.zero_grad()
             outputs = model(batch_x)
 
-            # Re-escalamos batch_x para la comparación física
             original_samples = batch_x.squeeze() * X_std + X_mean
             loss = criterion(outputs, batch_y, original_samples)
 
@@ -111,7 +109,7 @@ def train_pinn():
             total_loss += loss.item()
 
         avg_loss = total_loss / len(train_loader)
-        scheduler.step(avg_loss)  # El scheduler ajusta el LR si la pérdida se estanca
+        scheduler.step(avg_loss)
 
         if epoch % 5 == 0:
             current_lr = optimizer.param_groups[0]["lr"]

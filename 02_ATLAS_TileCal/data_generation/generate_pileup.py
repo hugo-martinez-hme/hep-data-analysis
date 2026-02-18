@@ -14,11 +14,10 @@ def generate_event_with_pileup(main_amp, n_pileup=2):
     # Pulso principal
     signal = get_pulse_shape(t, main_amp, phase=0.0)
 
-    # Creación de pulsos pile-up aleatorios
     pileup_total = np.zeros_like(t)
     for _ in range(n_pileup):
         pu_amp = np.random.uniform(5, 30)  # Pulsos secundarios más pequeños
-        pu_phase = np.random.uniform(-2.0, 2.0)  # Desplazados en el tiempo
+        pu_phase = np.random.uniform(-2.0, 2.0)  # Desplazados
         pileup_total += get_pulse_shape(t, pu_amp, pu_phase)
 
     noise = np.random.normal(0, 0.8, t.shape)
@@ -39,7 +38,7 @@ def create_pileup_dataset(n_samples=5000):
 
     os.makedirs("../data", exist_ok=True)
     df.to_csv("../data/tilecal_pileup.csv", index=False)
-    print("✅ Dataset con pile-up guardado.")
+    print("Dataset con pile-up guardado.")
 
 
 if __name__ == "__main__":

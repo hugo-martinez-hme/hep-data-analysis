@@ -15,7 +15,7 @@ def train_hardened():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-    # Mantenemos la misma arquitectura para que la comparación sea justa
+    # Mantenemos la misma arquitectura
     model = MLPRegressor(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
 
     print("--- ENTRENANDO MODELO HARDENED (RESISTENTE AL PILE-UP) ---")
